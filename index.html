@@ -68,15 +68,15 @@
   }
 
   .brand-mark {
-    width: 74px;
-    height: 74px;
+    width: 55px;
+    height: 55px;
     flex-shrink: 0;
     display: block;
   }
 
   /* Wordmark — Avenir Next Heavy in Figma, Mulish Black as free fallback */
   .brand-name {
-    height: 22.83px;
+    height: 16.2px;
     width: auto;
     display: block;
     flex-shrink: 0;
@@ -93,7 +93,7 @@
     font-weight: 500;
     color: var(--text);
     text-decoration: none;
-    font-size: 26px;
+    font-size: 17px;
     letter-spacing: 0.04em;
     position: relative;
     padding: 4px 2px;
@@ -114,11 +114,11 @@
   .headline {
     font-family: var(--font-body);
     font-weight: 500;            /* Medium from Figma */
-    font-size: 42.8px;           /* 70% of 61.15px */
-    line-height: 0.9;            /* 90% from Figma */
-    letter-spacing: 0.08em;      /* 8% from Figma */
+    font-size: 52px;             /* ~85% of 61.15px */
+    line-height: 1.1;            /* a bit more breathing room */
+    letter-spacing: 0.02em;      /* tighter kerning */
     color: var(--text);
-    max-width: 1015px;           /* 70% of 1450px */
+    max-width: 760px;            /* forces 3-line wrap */
     margin-bottom: 62px;         /* 70% of 88px */
   }
 
@@ -151,8 +151,8 @@
   /* ============== SERVICES GRID ============== */
   .services {
     display: grid;
-    grid-template-columns: repeat(3, 450.47px);
-    gap: 31px 24px;             /* row gap, column gap from inspect */
+    grid-template-columns: repeat(3, 300px);
+    gap: 20px 16px;
     justify-content: center;
     padding: 0 48px 80px;
   }
@@ -160,12 +160,12 @@
   .service {
     background: var(--card);
     border-radius: 11.21px;
-    padding: 28px 32px;
+    padding: 14px 16px;
     display: flex;
     align-items: center;
-    gap: 24px;
-    width: 450.47px;
-    height: 187.53px;
+    gap: 12px;
+    width: 300px;
+    min-height: 87px;
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease;
     cursor: default;
   }
@@ -176,27 +176,25 @@
   }
 
   .service-icon {
-    width: 51px;
-    height: 51px;
+    width: 36px;
+    height: 36px;
     flex-shrink: 0;
     display: block;
   }
 
   /* For closing & architecture (no white circle bg in Figma), icon stays as-is */
-  .service-icon.no-bg { width: 46px; }
-  .service-icon.layers { width: 51px; }
+  .service-icon.no-bg { width: 32px; }
+  .service-icon.layers { width: 36px; }
 
   .service-text {
     font-family: var(--font-body);
-    font-weight: 500;            /* Medium from Figma */
-    font-size: 22.42px;
-    line-height: 0.9;            /* 90% from Figma — actually means tight */
-    letter-spacing: 0.12em;      /* 12% from Figma */
+    font-weight: 500;
+    font-size: 12.5px;
+    line-height: 1.1;
+    letter-spacing: 0.08em;
     color: var(--text);
     text-align: left;
   }
-  /* Since 90% line-height + 12% letter-spacing on Poppins Medium creates a
-     specific look — the Figma text wraps tight inside the card. Replicate. */
 
   /* ============== FOOTER ============== */
   .footer {
@@ -213,41 +211,43 @@
   @media (max-width: 1500px) {
     .header { padding: 32px 48px 0; }
     .hero { padding: 90px 48px 0; }
-    .headline { font-size: 36px; margin-bottom: 44px; }
-    .services { grid-template-columns: repeat(3, 1fr); max-width: 1380px; margin: 0 auto; }
+    .headline { font-size: 42px; margin-bottom: 44px; max-width: 660px; }
+    .services { grid-template-columns: repeat(3, 1fr); max-width: 1000px; margin: 0 auto; }
     .service { width: 100%; }
     .nav { gap: 40px; }
-    .nav a { font-size: 22px; }
+    .nav a { font-size: 15px; }
+    .brand-name { height: 14.8px; }
   }
 
   @media (max-width: 1100px) {
     .header { padding: 28px 32px 0; }
     .hero { padding: 64px 32px 0; }
-    .headline { font-size: 30px; margin-bottom: 36px; }
+    .headline { font-size: 34px; margin-bottom: 36px; max-width: 560px; }
     .cta { margin-bottom: 44px; width: 168px; height: 50px; font-size: 14px; }
-    .services { grid-template-columns: repeat(2, 1fr); max-width: 980px; padding: 0 32px 64px; gap: 20px; }
-    .service { height: auto; min-height: 140px; padding: 22px 24px; }
-    .service-text { font-size: 19px; line-height: 1.1; letter-spacing: 0.08em; }
+    .services { grid-template-columns: repeat(3, 1fr); max-width: 880px; padding: 0 32px 64px; gap: 16px; }
+    .service { min-height: 80px; padding: 14px 14px; gap: 10px; }
+    .service-icon { width: 32px; height: 32px; }
+    .service-text { font-size: 12.5px; line-height: 1.15; letter-spacing: 0.04em; }
     .nav { gap: 32px; }
-    .nav a { font-size: 18px; }
-    .brand-name { height: 18.2px; }
-    .brand-mark { width: 56px; height: 56px; }
+    .nav a { font-size: 13px; }
+    .brand-name { height: 12.2px; }
+    .brand-mark { width: 42px; height: 42px; }
     .brand { gap: 16px; }
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 760px) {
     .header { padding: 24px 20px 0; flex-wrap: wrap; gap: 16px; }
     .hero { padding: 40px 20px 0; }
-    .headline { font-size: 24px; margin-bottom: 28px; letter-spacing: 0.04em; }
+    .headline { font-size: 26px; margin-bottom: 28px; max-width: 100%; letter-spacing: 0.02em; }
     .cta { margin-bottom: 36px; width: 154px; height: 46px; font-size: 13px; }
-    .services { grid-template-columns: 1fr; max-width: 480px; padding: 0 20px 40px; gap: 14px; }
-    .service { min-height: 96px; padding: 18px 20px; gap: 16px; border-radius: 10px; }
-    .service-icon { width: 42px; height: 42px; }
-    .service-text { font-size: 16px; }
+    .services { grid-template-columns: 1fr; max-width: 420px; padding: 0 20px 40px; gap: 12px; }
+    .service { min-height: 80px; padding: 14px 16px; gap: 12px; border-radius: 10px; }
+    .service-icon { width: 36px; height: 36px; }
+    .service-text { font-size: 15px; }
     .nav { gap: 20px; }
-    .nav a { font-size: 15px; }
-    .brand-name { height: 15.4px; }
-    .brand-mark { width: 48px; height: 48px; }
+    .nav a { font-size: 12px; }
+    .brand-name { height: 10.8px; }
+    .brand-mark { width: 33px; height: 33px; }
     .brand { gap: 12px; }
   }
 </style>
